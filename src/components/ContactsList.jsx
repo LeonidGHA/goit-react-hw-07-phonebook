@@ -1,16 +1,18 @@
 import css from './App.module.css';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import todosActions from 'redux/todos/todos-actions';
+// import todosActions from 'redux/todos/todos-actions';
+import { deleteContact } from '../redux/todos/todos-operations';
 function ContactsList({ renderFilterContacts }) {
   const dispatch = useDispatch();
-  const renderContact = renderFilterContacts.map(({ id, name, number }) => (
+
+  const renderContact = renderFilterContacts.map(({ id, name, phone }) => (
     <li className={css.item} key={id}>
-      {name} : {number}
+      {name} : {phone}
       <button
         className={css.listBtn}
         type="button"
-        onClick={e => dispatch(todosActions.deleteContact(e.target.id))}
+        onClick={e => dispatch(deleteContact(e.target.id))}
         id={id}
       >
         X
@@ -26,7 +28,7 @@ ContactsList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
+      phone: PropTypes.string.isRequired,
     })
   ),
 };

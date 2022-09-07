@@ -1,16 +1,16 @@
-import { createAction, nanoid } from '@reduxjs/toolkit';
+import { createAction } from '@reduxjs/toolkit';
 
-const addContact = createAction('contact/add', (name, number) => ({
-  payload: {
-    name,
-    number,
-    id: nanoid(5),
-  },
-}));
+// const addContact = createAction('contact/add', (name, number) => ({
+//   payload: {
+//     name,
+//     number,
+//     id: nanoid(5),
+//   },
+// }));
 
-const deleteContact = createAction('contact/delete');
+// const deleteContact = createAction('contact/delete');
 
 const changeFilter = createAction('contact/filter');
 
-const todosActions = { addContact, changeFilter, deleteContact };
+const todosActions = { changeFilter };
 export default todosActions;

@@ -1,11 +1,15 @@
 import css from './App.module.css';
+import Notiflix from 'notiflix';
 import { useState } from 'react';
-
-import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { itemsStore } from 'redux/todos/todos-selector';
+import { postContact } from '../redux/todos/todos-operations';
 
 function Forms({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const contactsArr = useSelector(itemsStore);
+  const dispatch = useDispatch();
 
   const textWrite = e => {
     const { name, value } = e.target;
@@ -25,12 +29,18 @@ function Forms({ onSubmit }) {
 
   const onClickSubmit = e => {
     e.preventDefault();
-    const data = {
-      name,
-      number,
-    };
-    onSubmit(data);
 
+    if (contactsArr.find(el => el.name === name || el.number === number)) {
+      Notiflix.Report.warning(
+        `Warning`,
+        `${name} or ${number} is already in cotacts`,
+        'Okay'
+      );
+      reset();
+      return;
+    }
+    dispatch(postContact({ name, number }));
+    Notiflix.Notify.success('You have a new Contact');
     reset();
   };
 
@@ -68,9 +78,5 @@ function Forms({ onSubmit }) {
     </form>
   );
 }
-
-Forms.propTypes = {
-  onSubmit: PropTypes.func,
-};
 
 export default Forms;
