@@ -2,7 +2,7 @@ import css from './App.module.css';
 import PropTypes from 'prop-types';
 
 import { useDispatch, useSelector } from 'react-redux';
-import todosActions from 'redux/todos/todos-actions';
+import { changeFilter } from 'redux/todos/todos-actions';
 
 import { filterStore } from 'redux/todos/todos-selector';
 
@@ -16,7 +16,7 @@ function Filter() {
       name="filter"
       placeholder="Serch Contacts"
       value={filterValue}
-      onChange={e => dispatch(todosActions.changeFilter(e.target.value))}
+      onChange={e => dispatch(changeFilter(e.target.value))}
     />
   );
 }

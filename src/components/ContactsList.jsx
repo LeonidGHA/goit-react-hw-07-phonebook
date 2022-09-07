@@ -1,7 +1,6 @@
 import css from './App.module.css';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-// import todosActions from 'redux/todos/todos-actions';
 import { deleteContact } from '../redux/todos/todos-operations';
 function ContactsList({ renderFilterContacts }) {
   const dispatch = useDispatch();

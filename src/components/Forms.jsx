@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { itemsStore } from 'redux/todos/todos-selector';
 import { postContact } from '../redux/todos/todos-operations';
 
-function Forms({ onSubmit }) {
+function Forms() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const contactsArr = useSelector(itemsStore);

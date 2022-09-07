@@ -1,5 +1,5 @@
-import * as contactsMockApi from './todos-service';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import * as contactsMockApi from './todos-service';
 
 const { fetchGet, fetchPost, fetchDelete } = contactsMockApi;
 
@@ -22,7 +22,6 @@ export const postContact = createAsyncThunk(
     try {
       await fetchPost(contact);
       const newContacts = await fetchGet();
-      console.log(newContacts);
       return newContacts;
     } catch (error) {
       console.log(error);

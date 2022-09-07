@@ -1,7 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
-import action from './todos-actions';
+import { changeFilter } from './todos-actions';
 import { getContacts, postContact, deleteContact } from './todos-operations';
 
 const items = createReducer([], {
@@ -13,13 +13,13 @@ const items = createReducer([], {
 });
 
 const filter = createReducer('', {
-  [action.changeFilter]: (_, { payload }) => payload,
+  [changeFilter]: (_, { payload }) => payload,
 });
 
-const isLoading = createReducer(false, {
-  [getContacts.fulfilled]: () => false,
-  [getContacts.pending]: () => true,
-  [getContacts.rejected]: () => false,
-});
+// const isLoading = createReducer(false, {
+//   [getContacts.fulfilled]: () => false,
+//   [getContacts.pending]: () => true,
+//   [getContacts.rejected]: () => false,
+// });
 
 export default combineReducers({ items, filter });
