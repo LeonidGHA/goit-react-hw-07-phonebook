@@ -30,7 +30,7 @@ function Forms() {
   const onClickSubmit = e => {
     e.preventDefault();
 
-    if (contactsArr.find(el => el.name === name || el.number === number)) {
+    if (contactsArr.find(el => el.name === name || el.phone === number)) {
       Notiflix.Report.warning(
         `Warning`,
         `${name} or ${number} is already in cotacts`,
