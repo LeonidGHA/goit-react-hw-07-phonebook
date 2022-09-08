@@ -8,7 +8,8 @@ import ContactsList from './ContactsList';
 import Filter from './Filter';
 
 import { getContacts } from '../redux/items/items-operations';
-import { filterStore, itemsStore } from 'redux/items/items-selector';
+import { itemsStore } from 'redux/items/items-selector';
+import { filterStore } from 'redux/filter/filter-selector';
 
 function App() {
   const dispatch = useDispatch();
