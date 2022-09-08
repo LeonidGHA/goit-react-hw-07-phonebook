@@ -2,10 +2,10 @@ import Notiflix from 'notiflix';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import css from './App.module.css';
+import css from './Forms.module.css';
 
 import { itemsStore } from 'redux/items/items-selector';
-import { postContact } from '../redux/items/items-operations';
+import { postContact } from 'redux/items/items-operations';
 
 function Forms() {
   const [name, setName] = useState('');
