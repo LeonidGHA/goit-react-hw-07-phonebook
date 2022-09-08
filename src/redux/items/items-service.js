@@ -9,13 +9,14 @@ export const fetchDelete = async id => {
 
 export const fetchPost = async contact => {
   const { name, number } = contact;
-  await axios.post(
+  const { data: result } = await axios.post(
     `https://63188f38f6b281877c6fecd4.mockapi.io/contacts/contacts`,
     {
       name,
       phone: number,
     }
   );
+  return result;
 };
 
 export const fetchGet = async () => {

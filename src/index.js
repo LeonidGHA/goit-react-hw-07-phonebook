@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from 'components/App';
 import './index.css';
 
-import { store } from './redux/phone-book-store';
 import { Provider } from 'react-redux';
+import { store } from './redux/phone-book-store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

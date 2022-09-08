@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as contactsMockApi from './todos-service';
+import * as contactsMockApi from './items-service';
 
 const { fetchGet, fetchPost, fetchDelete } = contactsMockApi;
 
@@ -10,7 +10,7 @@ export const getContacts = createAsyncThunk(
       const data = await fetchGet();
       return data;
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   }
 );
@@ -20,11 +20,11 @@ export const postContact = createAsyncThunk(
 
   async contact => {
     try {
-      await fetchPost(contact);
-      const newContacts = await fetchGet();
-      return newContacts;
+      const data = await fetchPost(contact);
+
+      return data;
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   }
 );
@@ -33,11 +33,11 @@ export const deleteContact = createAsyncThunk(
   'contact/deleteContact',
   async id => {
     try {
-      await fetchDelete(id);
+      const data = await fetchDelete(id);
 
-      return id;
+      return data.id;
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   }
 );

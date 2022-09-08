@@ -1,10 +1,9 @@
-import css from './App.module.css';
-import PropTypes from 'prop-types';
-
 import { useDispatch, useSelector } from 'react-redux';
-import { changeFilter } from 'redux/todos/todos-actions';
 
-import { filterStore } from 'redux/todos/todos-selector';
+import css from './App.module.css';
+
+import { changeFilter } from 'redux/filter/filter-actions';
+import { filterStore } from 'redux/items/items-selector';
 
 function Filter() {
   const dispatch = useDispatch();
@@ -21,7 +20,4 @@ function Filter() {
   );
 }
 
-Filter.propTypes = {
-  filterValue: PropTypes.string,
-};
 export default Filter;

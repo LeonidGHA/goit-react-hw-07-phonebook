@@ -1,9 +1,11 @@
-import css from './App.module.css';
 import Notiflix from 'notiflix';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { itemsStore } from 'redux/todos/todos-selector';
-import { postContact } from '../redux/todos/todos-operations';
+
+import css from './App.module.css';
+
+import { itemsStore } from 'redux/items/items-selector';
+import { postContact } from '../redux/items/items-operations';
 
 function Forms() {
   const [name, setName] = useState('');
